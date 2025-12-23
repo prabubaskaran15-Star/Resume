@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabu Baskaran | RPA & HyperAutomation Leader</title>
+    <meta name="description" content="Portfolio of Prabu Baskaran - 12+ years experience in RPA, Program Governance, and Agile Delivery leadership.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f1f5f9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .ai-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ai-card:hover {
+            border-color: rgba(34, 211, 238, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.1);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .chat-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="relative">
+    <div class="fixed inset-0 grid-pattern pointer-events-none -z-10"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-10 h-10 bg-gradient-to-tr from-cyan-400 to-indigo-600 rounded-xl flex items-center justify-center font-bold text-slate-900 shadow-lg shadow-cyan-500/20">
+                    PB
+                </div>
+                <span class="text-xl font-bold tracking-tight">Prabu Baskaran</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                <button onclick="scrollToSection('about')" class="hover:text-cyan-400 transition-colors">About</button>
+                <button onclick="scrollToSection('skills')" class="hover:text-cyan-400 transition-colors">Skills</button>
+                <button onclick="scrollToSection('experience')" class="hover:text-cyan-400 transition-colors">Experience</button>
+                <button onclick="scrollToSection('education')" class="hover:text-cyan-400 transition-colors">Education</button>
+                <button onclick="scrollToSection('contact')" class="px-5 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded-full transition-all font-semibold">
+                    Contact Me
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-slate-400 p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 p-8 flex flex-col space-y-6 md:hidden">
+            <button onclick="scrollToSection('about')" class="text-left text-xl font-medium">About</button>
+            <button onclick="scrollToSection('skills')" class="text-left text-xl font-medium">Skills</button>
+            <button onclick="scrollToSection('experience')" class="text-left text-xl font-medium">Experience</button>
+            <button onclick="scrollToSection('education')" class="text-left text-xl font-medium">Education</button>
+            <button onclick="scrollToSection('contact')" class="text-left text-xl font-medium text-cyan-400">Contact</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-48 pb-24 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="z-10 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 text-xs font-bold mb-8 uppercase tracking-widest mx-auto lg:mx-0">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>Program Governance & Agile Leader</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
+                    Scaling <span class="accent-gradient">HyperAutomation</span> for Global Enterprise
+                </h1>
+                <p class="text-xl text-slate-400 mb-12 max-w-xl leading-relaxed mx-auto lg:mx-0">
+                    12+ years of leadership in enterprise automation across Telecom, BFSI, Retail, and Oil & Gas. Specialist in CoE enablement and strategic ROI.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="resume.pdf" target="_blank" class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-cyan-500 to-indigo-600 text-white rounded-2xl font-bold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all flex items-center justify-center group">
+                        Download Resume 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    </a>
+                    <div class="flex items-center space-x-6">
+                        <a href="https://www.linkedin.com/in/prabubaskaran" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-all hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="mailto:prabubaskaran15@gmail.com" class="text-slate-400 hover:text-cyan-400 transition-all hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block relative">
+                <div class="absolute inset-0 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse"></div>
+                <div class="relative ai-card p-10 rounded-[2.5rem] animate-float">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="w-14 h-14 bg-cyan-400/20 rounded-2xl flex items-center justify-center text-cyan-400 font-bold text-xl">PB</div>
+                        <div>
+                            <h3 class="font-bold text-lg">Career Identity</h3>
+                            <p class="text-xs text-slate-500 uppercase tracking-tighter">Verified Professional Excellence</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+                            <p class="text-[10px] text-cyan-400 font-bold uppercase mb-1">Current Focus</p>
+                            <p class="text-sm font-medium">Associate PM @ Expleo Solutions</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+                            <p class="text-[10px] text-indigo-400 font-bold uppercase mb-1">Global Presence</p>
+                            <p class="text-sm font-medium">Poland • Romania • Portugal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-16">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Executive Summary</h2>
+                <div class="w-16 h-1.5 bg-cyan-500 rounded-full mb-8"></div>
+                <ul class="space-y-4 text-slate-400">
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-cyan-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Chennai, India</li>
+                    <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-cyan-400"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +91-7358311515</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-2 space-y-8 text-xl text-slate-300 leading-relaxed">
+                <p>RPA & HyperAutomation Program Manager with 12+ years of experience leading enterprise automation initiatives across global sectors. Proven track record in program governance, Agile delivery leadership, and driving digital transformation across global operations.</p>
+                <p>I specialize in building CoE frameworks and driving digital transformation through scalable AI-driven workflows. My career is defined by standardizing automation KPIs, optimizing squad performance, and delivering high-impact solutions for Telecom, BFSI, Retail, and Oil & Gas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 text-center">Core Competencies</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="ai-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 text-cyan-400">Automation</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li>• Automation Anywhere A360</li>
+                        <li>• UiPath</li>
+                        <li>• IDP / OCR</li>
+                        <li>• NICE RPA</li>
+                    </ul>
+                </div>
+                <div class="ai-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 text-indigo-400">Governance</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li>• Agile Leadership (Scrum)</li>
+                        <li>• Delivery Roadmaps</li>
+                        <li>• Squad Optimization</li>
+                        <li>• CoE Enablement</li>
+                    </ul>
+                </div>
+                <div class="ai-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 text-cyan-400">Strategy</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li>• Pipeline Governance</li>
+                        <li>• Stakeholder Management</li>
+                        <li>• Pre-sales & RFP</li>
+                        <li>• ROI Evaluation</li>
+                    </ul>
+                </div>
+                <div class="ai-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 text-indigo-400">Technical</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li>• PDD / SDD Creation</li>
+                        <li>• ASP.NET & SQL</li>
+                        <li>• Requirements Gathering</li>
+                        <li>• Generative AI for PMs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-6 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16">Professional Experience</h2>
+            <div class="space-y-12">
+                <!-- Expleo -->
+                <div class="ai-card p-8 rounded-3xl">
+                    <div class="flex flex-wrap justify-between items-start mb-6 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest">2021 – Present</span>
+                            <h3 class="text-2xl font-bold mt-1">Associate Project Manager – RPA</h3>
+                            <p class="text-slate-400">Expleo Solutions</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start"><span class="mr-3 text-cyan-500 font-bold">✓</span> Leading enterprise automation delivery using AA360, IDP & AI-driven workflows.</li>
+                        <li class="flex items-start"><span class="mr-3 text-cyan-500 font-bold">✓</span> Designed automation pipeline strategy covering intake → deployment.</li>
+                        <li class="flex items-start"><span class="mr-3 text-cyan-500 font-bold">✓</span> Managed Agile squads, improved delivery velocity & predictability.</li>
+                        <li class="flex items-start"><span class="mr-3 text-cyan-500 font-bold">✓</span> Standardized automation governance: KPIs, reporting, and documentation.</li>
+                    </ul>
+                </div>
+                
+                <!-- Olam -->
+                <div class="ai-card p-8 rounded-3xl">
+                    <div class="flex flex-wrap justify-between items-start mb-6 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">2018 – 2021</span>
+                            <h3 class="text-2xl font-bold mt-1">RPA Lead / Specialist</h3>
+                            <p class="text-slate-400">Olam Information Services</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">✓</span> Built RPA CoE frameworks and reusable automation components.</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">✓</span> Delivered high-impact automations across Finance & Supply Chain.</li>
+                        <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">✓</span> Enabled secure & scalable AA360 infrastructure with IT teams.</li>
+                    </ul>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="ai-card p-6 rounded-2xl">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase">2017–2018</span>
+                        <h4 class="font-bold mt-2">RPA Specialist</h4>
+                        <p class="text-xs text-slate-400">Shell India • NICE RPA</p>
+                    </div>
+                    <div class="ai-card p-6 rounded-2xl">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase">2015–2017</span>
+                        <h4 class="font-bold mt-2">Software Engineer</h4>
+                        <p class="text-xs text-slate-400">Wipro • Requirements & PDD</p>
+                    </div>
+                    <div class="ai-card p-6 rounded-2xl">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase">2013–2015</span>
+                        <h4 class="font-bold mt-2">Software Developer</h4>
+                        <p class="text-xs text-slate-400">Bitberries • ASP.NET & SQL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-16">Education & Certifications</h2>
+            <div class="grid lg:grid-cols-2 gap-12 text-left">
+                <div class="ai-card p-10 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-8 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-cyan-400"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        Academic
+                    </h3>
+                    <p class="text-lg font-bold text-white">Master of Computer Applications</p>
+                    <p class="text-slate-400">Anna University</p>
+                </div>
+                <div class="ai-card p-10 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-8 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-indigo-400"><path d="M12 15l-3-3 3-3"/><path d="M15 12H9"/><rect width="20" height="20" x="2" y="2" rx="2"/></svg>
+                        Certifications
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li>• AA: Solution Architect & Advanced Developer</li>
+                        <li>• Certified Scrum Master (CSM)</li>
+                        <li>• Project Management Foundations</li>
+                        <li>• Generative AI for Project Managers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Exposure Section -->
+    <section id="exposure" class="py-32 px-6 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Global Footprint</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="px-8 py-4 bg-slate-800 rounded-2xl border border-slate-700 font-bold text-slate-300 transition-all hover:bg-slate-700">Poland (Warsaw)</div>
+                <div class="px-8 py-4 bg-slate-800 rounded-2xl border border-slate-700 font-bold text-slate-300 transition-all hover:bg-slate-700">Romania (Timisoara)</div>
+                <div class="px-8 py-4 bg-slate-800 rounded-2xl border border-slate-700 font-bold text-slate-300 transition-all hover:bg-slate-700">Portugal (Lisbon)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="py-32 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Connect With Me</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mb-16">
+                <a href="mailto:prabubaskaran15@gmail.com" class="text-xl text-slate-400 hover:text-cyan-400 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    prabubaskaran15@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/prabubaskaran" target="_blank" rel="noopener noreferrer" class="text-xl text-slate-400 hover:text-cyan-400 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+            <p class="text-slate-600">© 2024 Prabu Baskaran • Excellence in HyperAutomation Program Management</p>
+        </div>
+    </footer>
+
+    <!-- Chat Bot -->
+    <div class="fixed bottom-8 right-8 z-[100]">
+        <button id="chat-fab" class="w-16 h-16 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-2xl shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </button>
+        <div id="chat-panel" class="hidden absolute bottom-20 right-0 w-[90vw] md:w-[400px] h-[500px] bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="p-5 bg-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 font-bold">PB</div>
+                    <p class="font-bold text-sm text-white">Career Assistant</p>
+                </div>
+                <button id="close-chat" class="text-slate-400 hover:text-white p-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-5 space-y-4 bg-slate-900/50 chat-container">
+                <div class="bg-slate-800 p-4 rounded-2xl rounded-tl-none border border-slate-700 text-sm text-slate-300 shadow-sm">
+                    Hello! I'm Prabu's AI Assistant. Ask me about his 12+ years of RPA leadership or global projects.
+                </div>
+            </div>
+            <form id="chat-form" class="p-4 border-t border-slate-800 flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Ask about experience..." class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-cyan-500 text-slate-200">
+                <button type="submit" class="p-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { GoogleGenAI } from "https://esm.sh/@google/genai@^1.34.0";
+
+        // Scroll to section function
+        window.scrollToSection = function(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        };
+
+        const fab = document.getElementById('chat-fab');
+        const panel = document.getElementById('chat-panel');
+        const closeBtn = document.getElementById('close-chat');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const msgContainer = document.getElementById('chat-messages');
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        fab.addEventListener('click', () => panel.classList.toggle('hidden'));
+        closeBtn.addEventListener('click', () => panel.classList.add('hidden'));
+
+        const addMsg = (role, text) => {
+            const d = document.createElement('div');
+            d.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'}`;
+            d.innerHTML = `
+                <div class="max-w-[85%] p-4 rounded-2xl text-sm shadow-md ${role === 'user' ? 'bg-cyan-600 text-white rounded-tr-none' : 'bg-slate-800 text-slate-300 rounded-tl-none border border-slate-700'}">
+                    ${text}
+                </div>
+            `;
+            msgContainer.appendChild(d);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+        };
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addMsg('user', text);
+            chatInput.value = '';
+
+            const typing = document.createElement('div');
+            typing.className = "text-[10px] text-cyan-500 font-bold uppercase animate-pulse px-2";
+            typing.innerText = "Analyzing Prabu's career data...";
+            msgContainer.appendChild(typing);
+
+            try {
+                const ai = new GoogleGenAI({ apiKey: window.process?.env?.API_KEY || "OFFLINE_MODE" });
+                const response = await ai.models.generateContent({
+                    model: 'gemini-3-flash-preview',
+                    contents: text,
+                    config: {
+                        systemInstruction: "You are Prabu Baskaran's AI career assistant. He is an RPA leader (12+ yrs experience) expert in AA360, UiPath, and Agile. Mention global exposure in Poland/Romania/Portugal. Be professional, direct, and highlight ROI impacts. Keep responses short.",
+                        temperature: 0.7
+                    }
+                });
+                typing.remove();
+                addMsg('assistant', response.text || "I'm having trouble retrieving data right now. Please contact Prabu directly.");
+            } catch (err) {
+                typing.remove();
+                addMsg('assistant', "I'm offline, but feel free to reach out to Prabu at prabubaskaran15@gmail.com.");
+            }
+        });
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
